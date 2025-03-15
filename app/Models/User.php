@@ -13,4 +13,19 @@ class User extends Authenticatable
     protected $fillable = ['username', 'password', 'name', 'email', 'phone'];
 
     protected $hidden = ['password'];
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }
